@@ -1,0 +1,28 @@
+{{- if .Values.signals.opentelemetry.enabled }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openshift-tempo-operator
+  labels:
+    openshift.io/cluster-monitoring: "true"
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: tempo-operator
+  namespace: openshift-tempo-operator
+spec:
+  upgradeStrategy: Default
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name:  tempo-product
+  namespace: openshift-tempo-operator 
+spec:
+  channel: {{ .Values.signals.opentelemetry.channel }} 
+  installPlanApproval: Automatic 
+  name: tempo-product
+  source: redhat-operators 
+  sourceNamespace: openshift-marketplace
+{{- end }}

@@ -1,0 +1,16 @@
+signals:
+  coo:
+    # Cluster Observability Operator will be installed if any signal that depends
+    # on it is enabled.
+    channel: "stable"
+  logging:
+    enabled: true
+    channel: "stable-6.4"
+  opentelemetry:
+    enabled: true
+    channel: "stable"
+  networkobservability:
+    enabled: true
+    channel: "stable"
+  korrel8r:
+    enabled: true

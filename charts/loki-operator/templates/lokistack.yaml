@@ -1,0 +1,27 @@
+{{- include "validate-values" . }}
+apiVersion: loki.grafana.com/v1
+kind: LokiStack
+metadata:
+{{- if eq .Values.tenants.mode "openshift-logging" }}
+  name: logging-loki 
+{{- else if eq .Values.tenants.mode "openshift-network" }}
+  name: netobserv-loki 
+{{- end }}
+  namespace: {{ include "loki.namespace" . }}
+spec:
+  managementState: Managed
+  limits:
+    global: 
+      retention: 
+        days: 30
+  size: 1x.small 
+  storage:
+    schemas:
+    - version: v13
+      effectiveDate: "2025-01-01" 
+    secret:
+      name: {{ .Values.objstore.existingSecret | default "logging-objstore" }}
+      type: {{ .Values.objstore.type }}
+  storageClassName: {{ .Values.storageClassName }}
+  tenants:
+    mode: {{ .Values.tenants.mode }}
