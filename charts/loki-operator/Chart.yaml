@@ -1,0 +1,16 @@
+---
+apiVersion: v2
+description: A chart to bootstrap Loki Operator in an OpenShift cluster
+name: loki-operator
+version: 0.1.0
+appVersion: v1.0.0
+home: https://docs.redhat.com/en/documentation/red_hat_openshift_logging
+icon: https://raw.githubusercontent.com/openshift/origin-web-console/master/app/images/openshift-logo.svg
+sources:
+  - https://github.com/JoaoBraveCoding/observability-charts/tree/main/charts/loki-operator
+  - https://github.com/grafana/loki/operator
+maintainers:
+  - name: JoaoBraveCoding
+    email: jmarcal@redhat.com
+annotations:
+  artifacthub.io/category: observability

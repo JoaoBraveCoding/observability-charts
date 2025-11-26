@@ -1,0 +1,20 @@
+channel: "" # Pick a channel e.g. "stable-6.4"
+
+namespace: "" # Namespace to install the LokiStack in
+
+tenants:
+  mode: "" # Supported values: openshift-logging, openshift-network
+
+storageClassName: ""
+objstore:
+  type: "" # Supported values: s3, gcs, azure, swift
+  data: "" # Content of secret to match the type
+  # Example for S3 compatible object storage
+  # type: s3
+  # data: |
+  #   access_key_id: <access_key_id>
+  #   access_key_secret: <secret_access_key>
+  #   bucketnames: <s3_bucket_name>
+  #   endpoint: <endpoint>
+  #   region: <region>
+  existingSecret: "" # Name of existing secret to use, it has to exist in the same namespace as the LokiStack

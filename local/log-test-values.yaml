@@ -1,0 +1,8 @@
+global:
+  channel: "stable-6.4"
+
+loki-operator:
+  storageClassName: "gp3-csi"
+  objstore:
+    type: s3
+    existingSecret: test

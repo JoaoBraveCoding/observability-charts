@@ -1,0 +1,21 @@
+---
+apiVersion: v2
+description: A chart to bootstrap Logging in an OpenShift cluster
+name: logging
+version: 0.1.0
+appVersion: v1.0.0
+home: https://docs.redhat.com/en/documentation/red_hat_openshift_logging
+icon: https://raw.githubusercontent.com/openshift/origin-web-console/master/app/images/openshift-logo.svg
+sources:
+  - https://github.com/JoaoBraveCoding/observability-charts/tree/main/charts/logging
+  - https://github.com/openshift/cluster-logging-operator
+  - https://github.com/grafana/loki/operator
+maintainers:
+  - name: JoaoBraveCoding
+    email: jmarcal@redhat.com
+dependencies:
+  - name: loki-operator
+    version: 0.1.0
+    repository: "file://../loki-operator"
+annotations:
+  artifacthub.io/category: observability

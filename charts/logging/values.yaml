@@ -1,0 +1,18 @@
+global:
+  channel: "stable-6.4"
+
+loki-operator:
+  tenants:
+    mode: "openshift-logging"
+  storageClassName: ""
+  objstore:
+    type: "" # Supported values: s3, gcs, azure, swift
+    data: "" # Content of secret to match the type
+    # Example for S3 compatible object storage
+    # type: s3
+    # data: |
+    #   access_key_id: <access_key_id>
+    #   access_key_secret: <secret_access_key>
+    #   bucketnames: <s3_bucket_name>
+    #   endpoint: <endpoint>
+    #   region: <region>
